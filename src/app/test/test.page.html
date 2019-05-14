@@ -1,12 +1,12 @@
-<!-- 2 -->
 
-  <ion-toolbar>
-      <ion-icon size="large" name="close-circle" slot="end" [routerLink]="['/tabs/tab2']"></ion-icon>
-  </ion-toolbar> 
 
-<ion-content padding>
+<ion-content>
     <ion-grid>
       
+      <!-- 1 -->
+      <div *ngIf= "questionCounter === 1; then question1"></div>
+      <ng-template #question1>                       
+        
       <ion-row align-item-center>
         <ion-col>        
                     <div text-center>
@@ -14,19 +14,437 @@
                     </div>          
         </ion-col>
       </ion-row>
+      
       <ion-row align-item-center>
           <ion-col text-center>
                      
-                        <ion-button>Female</ion-button>  
+                        <ion-button (click)="female()">Female</ion-button>                         
+                        
                     
           </ion-col>          
         </ion-row>
         <ion-row align-item-center>
             <ion-col text-center>
-              <ion-button>
+              <ion-button  (click)="male()">
                Male
            </ion-button>           
             </ion-col>          
           </ion-row>
+
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(fem === true)||(mal === true) ">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row> 
+       </ng-template>
+ <!-- 2 -->
+       <div *ngIf= "questionCounter === 2; then question2"></div>
+       <ng-template #question2>
+      <ion-row align-item-center>
+        <ion-col>        
+                    <div text-center>
+                      <h2>Age:</h2>
+                    </div>          
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="age1()"> Less than 45 </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="age2()">
+               45 - 54
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="age3()">
+               55 - 64
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="age4()">
+               More than 64
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value >= 2)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row> 
+
+        </ng-template>
+
+     <!-- 3 -->
+  <div *ngIf= "questionCounter === 3; then question3"></div>
+  <ng-template #question3>
+ 
+
+      <ion-row align-item-center>
+        <ion-col>        
+                    <div text-center>
+                      <h2>BMI (Kg/m<sup>2</sup>):</h2>
+                    </div>          
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="bmi1()"> Less than 25 </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="bmi2()">
+               25 - 30
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="bmi3()">
+               More than 30
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+
+          <ion-row align_item-end>
+              <ion-col>    
+                       
+                          <div text-right *ngIf= "(value_extra === 2)||(value >= 1)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                              
+                            </div>          
+              </ion-col>
+            </ion-row> 
+          </ng-template>
+
+          <div *ngIf= "(questionCounter === 4)&&(fem===true); then question4fem"></div>
+  <ng-template #question4fem>
+           <!-- 4-fem -->
+        <ion-row align-item-center>
+        <ion-col>        
+                    <div text-center>
+                      <h2>Waist<br/>
+                        Circumference(cm):</h2>
+                    </div>          
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="waist1()"> Less than 80 </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="waist2()">
+               80 - 88
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="waist3()">
+               More than 88
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row> 
+  </ng-template>
+
+  <div *ngIf= "(questionCounter === 4)&&(mal===true); then question4mal"></div>
+  <ng-template #question4mal>
+           <!-- 4-male -->
+        <ion-row align-item-center>
+        <ion-col>        
+                    <div text-center>
+                      <h2>Waist<br/>
+                        Circumference(cm):</h2>
+                    </div>          
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="waist1()"> Less than 94 </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="waist2()">
+               94 - 102
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="waist3()">
+               More than 102
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row> 
+  </ng-template>
+
+ 
+
+  <!-- 5 -->
+  <div *ngIf= "questionCounter === 5; then question5"></div>
+  <ng-template #question5>
+  
+      <ion-row align-item-center>
+        <ion-col>        
+          <div text-center>
+            <h2>Use blood measure<br/>
+              medication:</h2>
+          </div>           
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="bloodpressure()">Yes</ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="bloodpressure_extra()">
+               No
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+            <ion-col>        
+                        <div text-right *ngIf= "(value_extra === 2)||(value === 2)">
+                            <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                        </div>          
+            </ion-col>
+          </ion-row> 
+        </ng-template>
+
+
+
+    <!-- 6 -->
+    <div *ngIf= "questionCounter === 6; then question6"></div>
+    <ng-template #question6>
+  
+      <ion-row align-item-center>
+        <ion-col>        
+          <div text-center>
+            <h2>History of high<br/>
+              blood glucose:</h2>
+          </div>           
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="bloodglucose()">Yes</ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="bloodglucose_extra()">
+               No
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value === 5)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row>         
+</ng-template>
+
+
+  
+   <!-- 7 -->
+   <div *ngIf= "questionCounter === 7; then question7"></div>
+   <ng-template #question7>
+      <ion-row align-item-center>
+        <ion-col>        
+          <div text-center>
+            <h2>Physical Activity:</h2>
+          </div>           
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="activitylow()">
+                          Less than<br/>
+                        4 hour per week
+                        </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+                <ion-button (click)="activitylow_extra()">
+                    At least<br/>
+                  4 hour per week
+                  </ion-button>             
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value === 2)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row>   
+
+</ng-template>
+
+<!-- 8 -->
+<div *ngIf= "questionCounter === 8; then question8"></div>
+<ng-template #question8>
+ 
+      <ion-row align-item-center>
+        <ion-col>        
+          <div text-center>
+            <h2>Daily consumption of<br/>
+              fruits or vegetables:</h2>
+          </div>           
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="vegetables_extra()">Yes</ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="vegetables()">
+               No
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+       
+        <ion-row align_item-end>
+            <ion-col>        
+                        <div text-right *ngIf= "(value_extra === 2)||(value === 1)">
+                            <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                        </div>          
+            </ion-col>
+          </ion-row>  
+  
+</ng-template>
+
+
+     <!-- 9 -->
+     <div *ngIf= "questionCounter === 9; then question9"></div>
+     <ng-template #question9>
+      <ion-row align-item-center>
+        <ion-col>        
+                    <div text-center>
+                      <h2>Family history of<br/>
+                        diabetes:</h2>
+                    </div>          
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+          <ion-col text-center>
+                     
+                        <ion-button (click)="familyhistory1()"> No </ion-button>  
+                    
+          </ion-col>          
+        </ion-row>
+        <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="familyhistory2()">
+               2nd degree<br/>
+               relative
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="familyhistory3()">
+                  1st degree<br/>
+                  relative
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+          <ion-row align_item-end>
+              <ion-col>        
+                          <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
+                              <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
+                          </div>          
+              </ion-col>
+            </ion-row> 
+            </ng-template>
+
+            <!-- results -->
+
+            <div *ngIf= "questionCounter === 10; then results"></div>
+     <ng-template #results>
+        <ion-row align-item-center>
+            <ion-col>    
+                <div text-right *ngIf= "riskcounter >= 14">
+                    <p>You have HIGH risk of develop diabetes</p>
+                    <p>riskcounter, {{riskcounter}}</p>
+                    
+                </div> 
+
+                <div text-right *ngIf= "riskcounter < 14">
+                    <p>You are  in the correct way, take care</p>
+                    <p>riskcounter, {{riskcounter}}</p>
+                    
+                </div>
+
+                    
+                 
+                       
+                             
+            </ion-col>
+          </ion-row>
+          <ion-row align-item-center>
+            <ion-col text-center>
+              <ion-button (click)="finishtest()">
+                  OK
+           </ion-button>           
+            </ion-col>          
+          </ion-row>
+      </ng-template>
+
     </ion-grid>    
-  </ion-content>
+  </ion-content> 
