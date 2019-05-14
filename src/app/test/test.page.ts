@@ -22,8 +22,7 @@ export class TestPage{
     this.value=0;
     this.value_extra=0;
      if (this.questionCounter == 10) 
-      this.questionCounter = this.questionCounter;
-      
+      this.questionCounter = 1;      
     else
       this.questionCounter ++; 
    }
@@ -131,6 +130,16 @@ export class TestPage{
   }
   familyhistory3(){
     this.value = 5;
+  }
+
+  //FinTest
+
+  finishtest(){
+    this.router.navigate(['/tabs/tab3'])
+    this.riskcounter=0;
+    this.questionCounter=1;
+    this.value=0;
+    this.value_extra=0;
   }
   }
   
