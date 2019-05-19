@@ -31,7 +31,15 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab3/tab3.module#Tab3PageModule'
-          }
+          },
+          {
+            path: 'detalle',
+            loadChildren: '../detalle/detalle.module#DetallePageModule'
+          },
+          {
+            path: 'detalle2',
+            loadChildren: '../detalle2/detalle2.module#Detalle2PageModule'
+          },
         ]
       },
       {
