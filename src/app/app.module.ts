@@ -15,10 +15,6 @@ import { AuthenticateService } from './services/auth.service'
 import * as firebase from 'firebase';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TabsPageModule } from './tabs/tabs.module';
-import { Tab1PageModule } from './tab1/tab1.module';
-import {Tab1Page} from './tab1/tab1.page';
-
-
 
 firebase.initializeApp(environment.firebase);
 
@@ -31,9 +27,7 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule, 
     AngularFireAuthModule, 
     ReactiveFormsModule,
-    TabsPageModule,
-    Tab1Page,
-    Tab1PageModule
+    TabsPageModule
   ],  
   providers: [
     StatusBar,

@@ -1,5 +1,74 @@
-<ion-footer (click)="logout()">
-  <ion-toolbar color="secondary">
-    <ion-title>Log out</ion-title>
-  </ion-toolbar>
-</ion-footer>
+ <ion-toolbar> 
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="actividad">
+      <ion-label>Actividad Física</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="dietas">
+      <ion-label>Dietas y Recetas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+
+  <ion-list *ngIf="!sel">
+    <ion-list-header>
+      <ion-label>Rutinas y Ejercicios para mejorar la Condición Física</ion-label>
+    </ion-list-header>
+    <ion-item class="activity" (click)="buttonClick($event)" detail>
+      <ion-icon class="activity" name="walk"></ion-icon>
+      <ion-label class="activity" text-wrap>
+        <h3 class="activity">Plan de Entrenamiento para Empezar a Correr desde Cero</h3>
+        <h6><small class="activity">8 semanas</small></h6>
+        <p class="activity">Si estás pensando en empezar a correr y no sabes cómo hacerlo, este puede ser tu primer paso.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item detail>
+      <ion-icon name="bicycle"></ion-icon>
+      <ion-label text-wrap>
+          <h3>Recupera la Forma sobre la Bici en ocho semanas</h3>
+          <h6><small>8 semanas</small></h6>
+          <p>Con este plan de entrenamiento para principiantes, dos meses bastan para ponerse a tono. Tú marcas el ritmo, pues son ejercicios de intensidad progresiva.</p>
+        </ion-label>
+    </ion-item>
+    <ion-item detail>
+        <ion-icon name="fitness"></ion-icon>
+        <ion-label text-wrap>
+            <h3>Ejercicios básicos para adelgazar en casa</h3>
+            <h6><small>12 semanas</small></h6>
+            <p>Si necesitas mejorar tu peso y composición corporal, debes combinar una dieta sana y equilibrada a nivel hormonal con ejercicios para adelgazar y quemar grasa.</p>
+          </ion-label>
+      </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="sel">
+    <ion-list-header>
+      <ion-label>Dietas y Recetas para mantener la forma física</ion-label>
+    </ion-list-header>
+    <ion-item class="food" (click)="buttonClick($event)" detail>
+        <ion-icon class="food" name="body"></ion-icon>
+        <ion-label class="food" text-wrap>
+          <h3 class="food">Menú Semanal Saludable</h3>
+          <h6><small class="food">7 días</small></h6>
+          <p class="food">El menú semanal saludable más fácil de seguir que vas a encontrar.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item detail>
+        <ion-icon name="nutrition"></ion-icon>
+        <ion-label text-wrap>
+            <h3>Aprende a incorporar verduras en tus platos para llevar una dieta sana y sabrosa</h3>
+            <h6><small>1 mes</small></h6>
+            <p>¿Quieres empezar a comer sano, pero sólo sabes preparar ensaladas? ¡No te preocupes! Aquí encontrarás una infinidad de nuevas ideas para mantener la línea perfecta y disfrutar en la cocina.</p>
+          </ion-label>
+      </ion-item>
+      <ion-item detail>
+          <ion-icon name="clipboard"></ion-icon>
+          <ion-label text-wrap>
+              <h3>La receta definitiva del auténtico gazpacho andaluz</h3>
+              <h6><small>2 horas</small></h6>
+              <p> Receta ideal para los que quieren aprender a hacer un buen gazpacho andaluz y no un zumo de tomate.</p>
+            </ion-label>
+        </ion-item>
+  </ion-list>
+
+</ion-content>
