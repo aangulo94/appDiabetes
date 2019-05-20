@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Tab1Page} from 'src/app/tab1/tab1.page';
+
 
 
 
@@ -11,7 +11,9 @@ import {Tab1Page} from 'src/app/tab1/tab1.page';
   templateUrl: './test.page.html',
   styleUrls: ['./test.page.scss'],
 })
-export class TestPage{
+export class TestPage {
+
+
   
   fem: boolean = false;
   mal: boolean = false;
@@ -20,7 +22,12 @@ export class TestPage{
   value: any=0;
   value_extra: any=0;
   
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    
+   
+  }
+
+  
 
   
   nextQuestion(){
@@ -142,12 +149,15 @@ export class TestPage{
   //FinTest
 
   finishtest(){
-   
+this.router.navigate(['/tab1',this.riskcounter]);
+/* this.router.navigateByUrl(`/tab1/${this.riskcounter}`); */
     this.questionCounter=1;
     this.value=0;
     this.value_extra=0;
     this.riskcounter=0;
-    this.router.navigate(['/tabs/tab1']); 
+    this.fem= false;
+    this.mal=false;
+   
 
        
   }

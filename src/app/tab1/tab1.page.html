@@ -1,3 +1,4 @@
+
 <ion-content>
     <ion-grid>
       <ion-row>
@@ -14,7 +15,17 @@
           <ion-col>
               <div text-left>
                   <h3>Test Registry</h3> 
-                  
+                  <div text-center *ngIf= "(argumento>= 14)">
+                    <p>Risk counter = {{argumento}}</p>
+                    <p>You have HIGH risk of developing Diabetes type 2</p>
+
+                  </div>
+                  <div text-center *ngIf= "(argumento< 14)">
+                    <p>Risk counter = {{argumento}}</p>
+                    <p>You are in the correct way, take care</p>
+
+                  </div>
+                   
                           
                            
                                  
@@ -30,4 +41,6 @@
     </ion-grid>    
   </ion-content>
 
+  
+   
 

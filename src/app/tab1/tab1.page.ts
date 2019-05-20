@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -7,12 +8,19 @@ import { Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
-  riskcounter2:any;
+export class Tab1Page implements OnInit{
   
-  constructor(private router: Router){
+  
+ argumento=null;
+  
+  constructor(private router: Router, private actRoute: ActivatedRoute){
  
   }
+  ngOnInit(){
+this.argumento=this.actRoute.snapshot.paramMap.get('id');
+  }
+
+  
   
   starttest(){
     

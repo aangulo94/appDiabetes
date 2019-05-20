@@ -446,9 +446,9 @@
   </ion-grid>    
 </ion-content> 
           
-                   <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
+                   <div text-center *ngIf= "(value_extra === 2)||(value >= 3)">
                       <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="finishtest()"></ion-icon>
+                          <ion-button  size="large"  slot="end"  (click)="finishtest()">FINISH</ion-button>
                       </ion-toolbar>
                    </div>          
 
