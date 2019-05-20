@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {Tab1Page} from 'src/app/tab1/tab1.page';
+
+
+
+
 
 @Component({
   selector: 'app-test',
@@ -15,10 +20,12 @@ export class TestPage{
   value: any=0;
   value_extra: any=0;
   
-  constructor(private router:Router){}
+  constructor(private router: Router){}
+
   
   nextQuestion(){
     this.riskcounter = this.riskcounter+this.value;
+   
     this.value=0;
     this.value_extra=0;
      if (this.questionCounter == 10) 
@@ -135,11 +142,14 @@ export class TestPage{
   //FinTest
 
   finishtest(){
-    this.router.navigate(['/tabs/tab3'])
-    this.riskcounter=0;
+   
     this.questionCounter=1;
     this.value=0;
     this.value_extra=0;
+    this.riskcounter=0;
+    this.router.navigate(['/tabs/tab1']); 
+
+       
   }
   }
   

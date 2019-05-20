@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tab2',
@@ -8,10 +8,6 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  constructor(private router: Router){}
-
-starttest(){
-this.router.navigate(['/tabs/test'])
-}
+  
 
 }
