@@ -17,12 +17,12 @@ export class RegisterPage implements OnInit {
  
   validation_messages = {
    'email': [
-     { type: 'required', message: 'Email is required.' },
-     { type: 'pattern', message: 'Enter a valid email.' }
+     { type: 'required', message: 'El correo electrónico es obligatorio.' },
+     { type: 'pattern', message: 'Por favor, introduzca un correo electrónico válido.' }
    ],
    'password': [
-     { type: 'required', message: 'Password is required.' },
-     { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+     { type: 'required', message: 'La contraseña es obligatoria.' },
+     { type: 'minlength', message: 'La contraseña debe de contener al menos 5 caracteres.' }
    ]
  };
  
@@ -50,7 +50,7 @@ export class RegisterPage implements OnInit {
      .then(res => {
        console.log(res);
        this.errorMessage = "";
-       this.successMessage = "Your account has been created. Please log in.";
+       this.successMessage = "Su cuenta ha sido creada con éxito. Por favor Inicie Sesión.";
      }, err => {
        console.log(err);
        this.errorMessage = err.message;

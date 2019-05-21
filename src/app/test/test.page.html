@@ -1,464 +1,423 @@
-
-
-
-      
-      <!-- 1 -->
-      <div *ngIf= "questionCounter === 1; then question1"></div>
-      <ng-template #question1>                       
-          <ion-content>
-              <ion-grid>                
+<!-- 1 -->
+<div *ngIf="questionCounter === 1; then question1"></div>
+<ng-template #question1>
+  <ion-content>
+    <ion-grid>
       <ion-row align-item-center>
-        <ion-col>        
-                    <div text-center>
-                      <h2>Gender:</h2>
-                    </div>          
+        <ion-col>
+          <div text-center>
+            <h2>Indique su género</h2>
+          </div>
         </ion-col>
       </ion-row>
-      
-      <ion-row align-item-center>
-          <ion-col text-center>
-                     
-                        <ion-button (click)="female()">Female</ion-button>                         
-                        
-                    
-          </ion-col>          
-        </ion-row>
-        <ion-row align-item-center>
-            <ion-col text-center>
-              <ion-button  (click)="male()">
-               Male
-           </ion-button>           
-            </ion-col>          
-          </ion-row>
-        </ion-grid>
-        </ion-content>   
-                                    
-            
-         
-          <div text-right *ngIf= "(fem === true)||(mal === true) ">
-             
-                  <ion-toolbar position="bottom">
-                      <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                  </ion-toolbar>
-         
-          </div>
-        
-       </ng-template>
 
-       <!-- 2 -->
-<div *ngIf= "questionCounter === 2; then question2"></div>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="female()" [ngStyle]="{'color':fem? 'orange' : 'white' }">Femenino</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="male()" [ngStyle]="{'color':mal? 'orange' : 'white' }">Masculino</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+
+
+  <!-- <div text-right *ngIf= "(fem === true)||(mal === true) "> -->
+  <ion-toolbar align-item-center>
+    <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(fem !== true) && (mal !== true)">
+      Siguiente</ion-button>
+    <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+  </ion-toolbar>
+
+  <!-- </div> -->
+
+</ng-template>
+
+
+<!-- 2 -->
+<div *ngIf="questionCounter === 2; then question2"></div>
 <ng-template #question2>
-   <ion-content>
-       <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-             <div text-center>
-               <h2>Age:</h2>
-             </div>          
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="age1()"> Less than 45 </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="age2()">
-        45 - 54
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="age3()">
-        55 - 64
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="age4()">
-        More than 64
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-         
-                   <div text-right *ngIf= "(value_extra === 2)||(value >= 2)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                   </div>          
-    
-  
- </ng-template>
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Indique su edad</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+
+          <ion-button (click)="age1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 45 </ion-button>
+
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="age2()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">
+            45 - 54
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="age3()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
+            55 - 64
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="age4()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
+            More than 64
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value >= 2)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value < 2)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
+</ng-template>
 
 <!-- 3 -->
-<div *ngIf= "questionCounter === 3; then question3"></div>
+<div *ngIf="questionCounter === 3; then question3"></div>
 <ng-template #question3>
-<ion-content>
-   <ion-grid> 
+  <ion-content>
+    <ion-grid>
 
-<ion-row align-item-center>
- <ion-col>        
-             <div text-center>
-               <h2>BMI (Kg/m<sup>2</sup>):</h2>
-             </div>          
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="bmi1()"> Less than 25 </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="bmi2()">
-        25 - 30
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="bmi3()">
-        More than 30
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content>
-     
-                
-                   <div text-right *ngIf= "(value_extra === 2)||(value >= 1)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                       
-                     </div>          
-      
- 
-   </ng-template>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>BMI (Kg/m<sup>2</sup>):</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bmi1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 25 </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bmi2()" [ngStyle]="{'color':value === 1? 'orange' : 'white' }">
+            25 - 30
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bmi3()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
+            More than 30
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
-   <div *ngIf= "(questionCounter === 4)&&(fem===true); then question4fem"></div>
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value >= 1)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value < 1)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+
+  <!-- </div> -->
+</ng-template>
+
+<div *ngIf="(questionCounter === 4)&&(fem===true); then question4fem"></div>
 <ng-template #question4fem>
-    <!-- 4-fem -->
-    <ion-content>
-       <ion-grid> 
- <ion-row align-item-center>
- <ion-col>        
-             <div text-center>
-               <h2>Waist<br/>
-                 Circumference(cm):</h2>
-             </div>          
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="waist1()"> Less than 80 </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="waist2()">
-        80 - 88
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="waist3()">
-        More than 88
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content>
-       
-                   <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                   </div>          
-      
-   
+  <!-- 4-fem -->
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Waist<br />
+              Circumference(cm):</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 80 </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
+            80 - 88
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist3()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
+            More than 88
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value >= 3)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value < 3)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
 </ng-template>
 
-<div *ngIf= "(questionCounter === 4)&&(mal===true); then question4mal"></div>
+<div *ngIf="(questionCounter === 4)&&(mal===true); then question4mal"></div>
 <ng-template #question4mal>
-    <!-- 4-male -->
-    <ion-content>
-       <ion-grid> 
- <ion-row align-item-center>
- <ion-col>        
-             <div text-center>
-               <h2>Waist<br/>
-                 Circumference(cm):</h2>
-             </div>          
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="waist1()"> Less than 94 </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="waist2()">
-        94 - 102
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="waist3()">
-        More than 102
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-          
-                   <div text-right *ngIf= "(value_extra === 2)||(value >= 3)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                   </div>          
-    
- 
-</ng-template>
+  <!-- 4-male -->
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Waist<br />
+              Circumference(cm):</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 94 </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
+            94 - 102
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="waist3()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
+            More than 102
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value >= 3)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value < 3)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
+</ng-template>
 
 
 <!-- 5 -->
-<div *ngIf= "questionCounter === 5; then question5"></div>
+<div *ngIf="questionCounter === 5; then question5"></div>
 <ng-template #question5>
-<ion-content>
-   <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-   <div text-center>
-     <h2>Use blood measure<br/>
-       medication:</h2>
-   </div>           
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="bloodpressure()">Yes</ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="bloodpressure_extra()">
-        No
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-       
-                 <div text-right *ngIf= "(value_extra === 2)||(value === 2)">
-                    <ion-toolbar position="bottom">
-                        <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                    </ion-toolbar>
-                 </div>          
- 
- 
- </ng-template>
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Use blood measure<br />
+              medication:</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bloodpressure()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">Yes</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bloodpressure_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">
+            No
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value === 2)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value !== 2)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
+</ng-template>
 
 
 <!-- 6 -->
-<div *ngIf= "questionCounter === 6; then question6"></div>
+<div *ngIf="questionCounter === 6; then question6"></div>
 <ng-template #question6>
- <ion-content>
-     <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-   <div text-center>
-     <h2>History of high<br/>
-       blood glucose:</h2>
-   </div>           
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="bloodglucose()">Yes</ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="bloodglucose_extra()">
-        No
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-       
-                   <div text-right *ngIf= "(value_extra === 2)||(value === 5)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                   </div>          
-   
-       
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>History of high<br />
+              blood glucose:</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bloodglucose()" [ngStyle]="{'color':value === 5? 'orange' : 'white' }">Yes</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="bloodglucose_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">
+            No
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value === 5)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value !== 5)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
 </ng-template>
 
-
-
 <!-- 7 -->
-<div *ngIf= "questionCounter === 7; then question7"></div>
+<div *ngIf="questionCounter === 7; then question7"></div>
 <ng-template #question7>
-<ion-content>
-   <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-   <div text-center>
-     <h2>Physical Activity:</h2>
-   </div>           
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="activitylow()">
-                   Less than<br/>
-                 4 hour per week
-                 </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-         <ion-button (click)="activitylow_extra()">
-             At least<br/>
-           4 hour per week
-           </ion-button>             
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-         
-                   <div text-right *ngIf= "(value_extra === 2)||(value === 2)">
-                      <ion-toolbar position="bottom">
-                          <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                      </ion-toolbar>
-                   </div>          
-      
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Physical Activity:</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="activitylow()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">
+            Less than<br />
+            4 hour per week
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="activitylow_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">
+            At least<br />
+            4 hour per week
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value === 2)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value !== 2)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
 </ng-template>
 
 <!-- 8 -->
-<div *ngIf= "questionCounter === 8; then question8"></div>
+<div *ngIf="questionCounter === 8; then question8"></div>
 <ng-template #question8>
-<ion-content>
- <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-   <div text-center>
-     <h2>Daily consumption of<br/>
-       fruits or vegetables:</h2>
-   </div>           
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="vegetables_extra()">Yes</ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="vegetables()">
-        No
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   
- </ion-grid>    
-</ion-content> 
-       
-                 <div text-right *ngIf= "(value_extra === 2)||(value === 1)">
-                    <ion-toolbar position="bottom">
-                        <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon>
-                    </ion-toolbar>
-                 </div>          
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Daily consumption of<br />
+              fruits or vegetables:</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="vegetables_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">Yes</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="vegetables()" [ngStyle]="{'color':value === 1? 'orange' : 'white' }">
+            No
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
+  <!-- <div text-right *ngIf="(value_extra === 2)||(value === 1)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value !== 1)">
+            Siguiente</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
 </ng-template>
 
-
 <!-- 9 -->
-<div *ngIf= "questionCounter === 9; then question9"></div>
+<div *ngIf="questionCounter === 9; then question9"></div>
 <ng-template #question9>
- <ion-content>
-     <ion-grid> 
-<ion-row align-item-center>
- <ion-col>        
-             <div text-center>
-               <h2>Family history of<br/>
-                 diabetes:</h2>
-             </div>          
- </ion-col>
-</ion-row>
-<ion-row align-item-center>
-   <ion-col text-center>
-              
-                 <ion-button (click)="familyhistory1()"> No </ion-button>  
-             
-   </ion-col>          
- </ion-row>
- <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="familyhistory2()">
-        2nd degree<br/>
-        relative
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-   
-   <ion-row align-item-center>
-     <ion-col text-center>
-       <ion-button (click)="familyhistory3()">
-           1st degree<br/>
-           relative
-    </ion-button>           
-     </ion-col>          
-   </ion-row>
-  </ion-grid>    
-</ion-content> 
-          
-                   <div text-center *ngIf= "(value_extra === 2)||(value >= 3)">
-                      <ion-toolbar position="bottom">
-                          <ion-button  size="large"  slot="end"  (click)="finishtest()">FINISH</ion-button>
-                      </ion-toolbar>
-                   </div>          
+  <ion-content>
+    <ion-grid>
+      <ion-row align-item-center>
+        <ion-col>
+          <div text-center>
+            <h2>Family history of<br />
+              diabetes:</h2>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="familyhistory1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> No </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="familyhistory2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
+            2nd degree<br />
+            relative
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row align-item-center>
+        <ion-col text-center>
+          <ion-button (click)="familyhistory3()" [ngStyle]="{'color':value === 5? 'orange' : 'white' }">
+            1st degree<br />
+            relative
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 
-
-     </ng-template>
-     
-
-
-
-
-
-
- 
+  <!-- <div text-center *ngIf="(value_extra === 2)||(value >= 3)"> -->
+      <ion-toolbar align-item-center>
+          <ion-button (click)="finishtest()" color="naranja" expand="block" [disabled]="(value_extra !== 2) && (value < 3)">
+            Finalizar</ion-button>
+          <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
+        </ion-toolbar>
+  <!-- </div> -->
+</ng-template>

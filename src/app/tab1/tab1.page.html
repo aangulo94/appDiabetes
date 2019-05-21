@@ -1,46 +1,18 @@
-
 <ion-content>
-    <ion-grid>
-      <ion-row>
-        <ion-col>        
-                    <div text-left>
-                        <h3>My Account</h3> 
-                        <p>Name: Juanita</p>
-                        <p>Age: 56 years</p>
-                        <p>Weight: 60 Kg</p>
-                    </div>          
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col>
-              <div text-left>
-                  <h3>Test Registry</h3> 
-                  <div text-center *ngIf= "(argumento>= 14)">
-                    <p>Risk counter = {{argumento}}</p>
-                    <p>You have HIGH risk of developing Diabetes type 2</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <h5>Historial</h5>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button size="small"color="naranja" expand="block" (click)="starttest()">Comenzar Test</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-                  </div>
-                  <div text-center *ngIf= "(argumento< 14)">
-                    <p>Risk counter = {{argumento}}</p>
-                    <p>You are in the correct way, take care</p>
-
-                  </div>
-                   
-                          
-                           
-                                 
-                     
-              </div>  
-          </ion-col>          
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <ion-button color="naranja"expand="block" (click)="starttest()">Start Test</ion-button>            
-            </ion-col>          
-          </ion-row>
-    </ion-grid>    
-  </ion-content>
-
-  
-   
-
+<img src="https://alltop.com/viral/wp-content/uploads/2013/09/Fotolia_45419600_Subscription_XXL-760x430.jpg">
+</ion-content>
