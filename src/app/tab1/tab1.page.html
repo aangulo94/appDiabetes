@@ -1,18 +1,91 @@
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div>
-          <h5>Historial</h5>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button size="small"color="naranja" expand="block" (click)="starttest()">Comenzar Test</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <h4>Historial</h4>
+    <div *ngIf="(result !== 0) && (result < 3) && (sex === 'masc')">
+      <h5>SU RIESGO ES <ion-text color="success">MUY BAJO</ion-text></h5>
+      <p>
+          Enhorabuena! Tiene sólo un 0,3% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Siga un estilo de vida saludable, combinando deporte y dieta sana utilizando los servicios
+          disponibles en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result < 3) && (sex === 'fem')">
+        <h5>SU RIESGO ES <ion-text color="success">MUY BAJO</ion-text></h5>
+        <p>
+          Enhorabuena! Tiene sólo un 0,1% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Siga un estilo de vida saludable, combinando deporte y dieta sana utilizando los servicios
+          disponibles en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+        </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 3) && (result < 8) && (sex === 'masc')">
+        <h5>SU RIESGO ES <ion-text color="success">BAJO</ion-text></h5>
+        <p>
+            Enhorabuena! Tiene sólo un 1% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+            Siga un estilo de vida saludable, combinando deporte y dieta sana utilizando los servicios
+            disponibles en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+            y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+        </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 3) && (result <= 8) && (sex === 'fem')">
+      <h5>SU RIESGO ES <ion-text color="success">BAJO</ion-text></h5>
+      <p>
+          Enhorabuena! Tiene sólo un 0,5% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Siga un estilo de vida saludable, combinando deporte y dieta sana utilizando los servicios
+          disponibles en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 9) && (result <= 12) && (sex === 'masc')">
+      <h5>SU RIESGO ES <ion-text color="warning">MODERADO</ion-text></h5>
+      <p>
+          Tiene un 2,6% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          No parece mucho, pero con la edad este riesgo aumenta, le recomendamos seguir un estilo de vida saludable, 
+          combinando deporte y dieta sana haciendo uso de los servicios disponibles en las pestañas 
+          <ion-text color="secondary"><a>NOTICIAS</a></ion-text> y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 9) && (result <= 12) && (sex === 'fem')">
+      <h5>SU RIESGO ES <ion-text color="warning">MODERADO</ion-text></h5>
+      <p>
+          Tiene un 2,2% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          No parece mucho, pero con la edad este riesgo aumenta, le recomendamos seguir un estilo de vida saludable, 
+          combinando deporte y dieta sana haciendo uso de los servicios disponibles en las pestañas 
+          <ion-text color="secondary"><a>NOTICIAS</a></ion-text> y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 13) && (result <= 20) && (sex === 'masc')">
+      <h5>SU RIESGO ES <ion-text color="danger">ALTO</ion-text></h5>
+      <p>
+          Tiene un 23,1% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Es una cifra importante, por lo que le recomendamos visite a un especialista y comience 
+          a llevar un estilo de vida saludable combinando deporte y dieta sana, utilizando los servicios disponibles 
+          en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result >= 13) && (result <= 20) && (sex === 'fem')">
+      <h5>SU RIESGO ES <ion-text color="danger">ALTO</ion-text></h5>
+      <p>
+          Tiene un 14,1% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Es una cifra importante, por lo que le recomendamos visite a un especialista y comience 
+          a llevar un estilo de vida saludable combinando deporte y dieta sana, utilizando los servicios disponibles 
+          en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <div *ngIf="(result !== 0) && (result > 21)">
+      <h5>SU RIESGO ES <ion-text color="danger">MUY ALTO</ion-text></h5>
+      <p>
+          Cuidado! Tiene más de un 50% de probabilidaes de sufrir diabetes tipo II en los próximos 10 años.<br><br>
+          Debe de ponerse en contacto con un especialista lo antes posible y comenzar a llevar
+          un estilo de vida saludable combinando deporte y dieta sana. Para ello, puede empezar 
+          utilizando los servicios disponibles en las pestañas <ion-text color="secondary"><a>NOTICIAS</a></ion-text>
+          y <ion-text color="secondary"><a>ESTILO DE VIDA</a></ion-text>.
+      </p>
+    </div>
+    <ion-button size="small" color="naranja" expand="block" (click)="starttest()">Comenzar Test</ion-button>
 
-<img src="https://alltop.com/viral/wp-content/uploads/2013/09/Fotolia_45419600_Subscription_XXL-760x430.jpg">
+  </ion-grid>
 </ion-content>

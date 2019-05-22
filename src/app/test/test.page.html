@@ -120,7 +120,7 @@
 
   <!-- <div text-right *ngIf="(value_extra === 2)||(value >= 1)"> -->
       <ion-toolbar align-item-center>
-          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="bmi !== 0">
+          <ion-button (click)="nextQuestion()" color="naranja" expand="block" [disabled]="(peso === 0) || (altura === 0)">
             Siguiente</ion-button>
           <!-- <ion-icon  size="large" name="arrow-dropright-circle" slot="end" (click)="nextQuestion()"></ion-icon> -->
         </ion-toolbar>

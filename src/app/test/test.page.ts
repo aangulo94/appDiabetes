@@ -7,19 +7,34 @@ import { NavController } from '@ionic/angular';
   templateUrl: './test.page.html',
   styleUrls: ['./test.page.scss'],
 })
-export class TestPage {
+export class TestPage implements OnInit {
 
-  fem: boolean = false;
-  mal: boolean = false;
-  riskcounter: any = 0;
-  questionCounter: any = 1;
-  value: any = 0;
-  value_extra: any = 0;
+  fem: boolean;
+  mal: boolean;
+  riskcounter: any;
+  questionCounter: any;
+  value: any;
+  value_extra: any;
   peso: number;
   altura: number;
-  bmi: number = 0;
+  bmi: number;
+  sex:string;
 
   constructor(private router: Router, private navCtrl: NavController) {
+  }
+
+  ngOnInit(){
+    this.riskcounter = 0;
+    this.fem = false;
+    this.mal = false;
+    this.questionCounter = 1;
+    this.value = 0;
+    this.value_extra = 0;
+    this.peso = 0;
+    this.altura = 0;
+    this.bmi = 0;
+    this.sex = '';
+
   }
 
   nextQuestion() {
@@ -162,7 +177,12 @@ export class TestPage {
   //FinTest
   finishtest() {
     this.riskcounter = this.riskcounter + this.value;
-    this.router.navigate(['/tabs/tab1'],{queryParams: {risk: this.riskcounter, sex: this.fem}});
+    if(this.fem){
+      this.sex = "fem";
+    } else if (this.mal){
+      this.sex = "masc";
+    }
+    this.router.navigate(['/tabs/tab1'],{queryParams: {risk: this.riskcounter, sex: this.sex}});
     this.questionCounter = 1;
     this.value = 0;
     this.value_extra = 0;

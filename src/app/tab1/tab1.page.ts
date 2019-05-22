@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -10,9 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class Tab1Page implements OnInit {
 
-
-  result: any;
-  sex: any;
+  result: number = 0;
+  sex: string = "";
 
   constructor(private router: Router, private actRoute: ActivatedRoute) {
   }
@@ -21,11 +18,7 @@ export class Tab1Page implements OnInit {
     this.actRoute.queryParams
       .subscribe(params =>{
         this.result = params.risk;
-        if(params.sex){
-          this.sex = "fem"
-        } else {
-          this.sex = "masc"
-        }
+        this.sex = params.sex;
       })
   }
 
