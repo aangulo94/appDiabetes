@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -12,16 +12,22 @@ export class Tab1Page implements OnInit {
 
 
   result: any;
+  sex: any;
 
   constructor(private router: Router, private actRoute: ActivatedRoute) {
-
   }
+
   ngOnInit() {
-    this.result = this.actRoute.snapshot.paramMap.get('result');
-    console.log(this.result);
+    this.actRoute.queryParams
+      .subscribe(params =>{
+        this.result = params.risk;
+        if(params.sex){
+          this.sex = "fem"
+        } else {
+          this.sex = "masc"
+        }
+      })
   }
-
-
 
   starttest() {
     this.router.navigate(['/tabs/test'])

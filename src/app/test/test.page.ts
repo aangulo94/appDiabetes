@@ -15,19 +15,25 @@ export class TestPage {
   questionCounter: any = 1;
   value: any = 0;
   value_extra: any = 0;
+  peso: number;
+  altura: number;
+  bmi: number = 0;
 
   constructor(private router: Router, private navCtrl: NavController) {
   }
 
   nextQuestion() {
-    this.riskcounter = this.riskcounter + this.value;
-    this.value = 0;
-    this.value_extra = 0;
-    if(this.questionCounter == 10){
+    if (this.questionCounter === 3){
+      this.bmiCalc();
+    }
+    if(this.questionCounter === 10){
       this.questionCounter = 1;
     } else {
       this.questionCounter++;
     }
+    this.riskcounter = this.riskcounter + this.value;
+    this.value = 0;
+    this.value_extra = 0;
   }
 
   //QUESTION 1
@@ -56,6 +62,19 @@ export class TestPage {
   age4() {
     this.value = 4
     this.value_extra = 0;
+  }
+
+  //QUESTION 3
+  bmiCalc() {
+     this.bmi = this.peso / Math.pow(this.altura,2);
+     console.log(this.bmi);
+     if(this.bmi<25){
+       this.bmi1();
+     } else if ((this.bmi>=25)&&(this.bmi<30)) {
+       this.bmi2();
+     } else if ( this.bmi >= 30) {
+       this.bmi3();
+     }
   }
 
   //QUESTION 3
@@ -142,8 +161,8 @@ export class TestPage {
 
   //FinTest
   finishtest() {
-    // this.router.navigate(['/tabs/tab1',this.riskcounter]);
-    this.navCtrl.navigateForward('/tabs/tab1');
+    this.riskcounter = this.riskcounter + this.value;
+    this.router.navigate(['/tabs/tab1'],{queryParams: {risk: this.riskcounter, sex: this.fem}});
     this.questionCounter = 1;
     this.value = 0;
     this.value_extra = 0;
