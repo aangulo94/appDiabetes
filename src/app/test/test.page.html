@@ -53,28 +53,28 @@
       <ion-row align-item-center>
         <ion-col text-center>
 
-          <ion-button (click)="age1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 45 </ion-button>
+          <ion-button (click)="age1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Menos de 45 años </ion-button>
 
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="age2()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">
-            45 - 54
+            Entre 45-54 años
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="age3()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
-            55 - 64
+            Entre 55 - 64 años
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="age4()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
-            More than 64
+            Más de 64 años
           </ion-button>
         </ion-col>
       </ion-row>
@@ -99,7 +99,8 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>BMI (Kg/m<sup>2</sup>):</h2>
+            <h2>Índice de Masa Corporal (Kg/m<sup>2</sup>)</h2>
+            <p>Para que calculemos su IMC facilítenos su peso y altura</p>
           </div>
         </ion-col>
       </ion-row>
@@ -136,27 +137,27 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Waist<br />
-              Circumference(cm):</h2>
+            <h2>Perímetro de la cintura</h2>
+            <p>Normalmente medido a nivel del ombligo</p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
-          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 80 </ion-button>
+          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Menos de 80 cm </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="waist2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
-            80 - 88
+            Entre 80 - 88 cm
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="waist3()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
-            More than 88
+            Más de 88 cm
           </ion-button>
         </ion-col>
       </ion-row>
@@ -180,27 +181,27 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Waist<br />
-              Circumference(cm):</h2>
+            <h2>Perímetro de la cintura</h2>
+            <p>Normalmente medido a nivel del ombligo</p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
-          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Less than 94 </ion-button>
+          <ion-button (click)="waist1()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }"> Menos de 94 cm </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="waist2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
-            94 - 102
+            Entre 94 - 102 cm
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="waist3()" [ngStyle]="{'color':value === 4? 'orange' : 'white' }">
-            More than 102
+            Más de 102 cm
           </ion-button>
         </ion-col>
       </ion-row>
@@ -225,14 +226,13 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Use blood measure<br />
-              medication:</h2>
+            <h2>¿Toma medicación para la hipertensión regularmente?</h2>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
-          <ion-button (click)="bloodpressure()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">Yes</ion-button>
+          <ion-button (click)="bloodpressure()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">Sí</ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
@@ -263,14 +263,14 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>History of high<br />
-              blood glucose:</h2>
+            <h2>¿Le han encontrado alguna vez valores de glucosa altos?</h2>
+            <p>Por ejemplo, en un control médico, durante una enfermedad, durante el embarazo</p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
-          <ion-button (click)="bloodglucose()" [ngStyle]="{'color':value === 5? 'orange' : 'white' }">Yes</ion-button>
+          <ion-button (click)="bloodglucose()" [ngStyle]="{'color':value === 5? 'orange' : 'white' }">Sí</ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
@@ -300,24 +300,20 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Physical Activity:</h2>
+            <h2>¿Con qué frecuencia realiza actividad física?</h2>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="activitylow()" [ngStyle]="{'color':value === 2? 'orange' : 'white' }">
-            Less than<br />
-            4 hour per week
-          </ion-button>
+            Menos de 4 horas/semana</ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="activitylow_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">
-            At least<br />
-            4 hour per week
-          </ion-button>
+            Más de 4 horas/semana</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -340,14 +336,13 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Daily consumption of<br />
-              fruits or vegetables:</h2>
+            <h2>¿Come verduras o frutas todos los días?</h2>
           </div>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
-          <ion-button (click)="vegetables_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">Yes</ion-button>
+          <ion-button (click)="vegetables_extra()" [ngStyle]="{'color':value_extra === 2? 'orange' : 'white' }">Sí</ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
@@ -377,8 +372,7 @@
       <ion-row align-item-center>
         <ion-col>
           <div text-center>
-            <h2>Family history of<br />
-              diabetes:</h2>
+            <h2>¿Se le ha diagnosticado diabetes (tipo 1 o tipo 2) a alguno de sus familiares allegados u otros parientes?</h2>
           </div>
         </ion-col>
       </ion-row>
@@ -390,16 +384,14 @@
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="familyhistory2()" [ngStyle]="{'color':value === 3? 'orange' : 'white' }">
-            2nd degree<br />
-            relative
+            Sí: abuelos-tíos-primos
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row align-item-center>
         <ion-col text-center>
           <ion-button (click)="familyhistory3()" [ngStyle]="{'color':value === 5? 'orange' : 'white' }">
-            1st degree<br />
-            relative
+            Sí: padres-hermanos-hijos
           </ion-button>
         </ion-col>
       </ion-row>
